@@ -907,49 +907,61 @@ article img {
 
   .hero {
     min-height: auto;
-    padding: 110px 0 64px;
+    padding: 320px 0 72px;
+    align-items: flex-start;
   }
 
   .hero-orbit {
-    width: min(520px, 94vw);
-    height: auto;
-    padding: 0 0 12px;
-    display: flex;
+    width: min(280px, 70vw);
+    height: min(280px, 70vw);
+    padding: 16px;
+    margin-top: 64px;
+  }
+
+  .hero-inner {
+    width: min(230px, 64vw);
+    padding: 8px;
+    gap: 8px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero-brand {
     flex-direction: column;
-    align-items: center;
-    gap: 18px;
+    gap: 8px;
+    margin-bottom: 4px;
   }
 
-  .orbit-nav {
-    position: static;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    animation: none;
+  .hero-brand-logo {
+    width: 36px;
+    height: 36px;
   }
 
-  .orbit-nav::before {
-    display: none;
-  }
-
-  .orbit-item {
-    position: static;
-    transform: none;
-    animation: none;
-    text-align: center;
+  .hero-brand-text {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
   }
 
   .hero-title {
+    max-width: 220px;
+    font-size: 1.5rem;
+    line-height: 1.1;
     white-space: normal;
   }
 
+  .hero-actions .button {
+    padding: 8px 14px;
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+  }
+
   .orbit-item {
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    padding: 8px 12px;
+    font-size: 0.44rem;
+    letter-spacing: 0.1em;
+    padding: 3px 6px;
   }
 
   .chat-panel-header,
