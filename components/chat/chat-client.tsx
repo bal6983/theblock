@@ -27,7 +27,7 @@ type Message = {
   created_at: string;
   profiles?: {
     email?: string | null;
-  } | null;
+  }[] | null;
 };
 
 type PendingMember = {
@@ -35,10 +35,11 @@ type PendingMember = {
   user_id: string;
   status: MembershipStatus;
   role: string;
-  profiles?: {
-    email?: string | null;
-  } | null;
+  profiles: {
+    email: string | null;
+  }[];
 };
+
 
 export default function ChatClient() {
   const [session, setSession] = useState<Session | null>(null);
@@ -566,7 +567,7 @@ export default function ChatClient() {
                     <span>
                       {message.user_id === userId
                         ? "Εσύ"
-                        : message.profiles?.email ?? "Μέλος"}
+                        : message.profiles?.[0]?.email ?? "Μέλος"}
                     </span>
                     <time>{new Date(message.created_at).toLocaleString()}</time>
                   </div>
@@ -598,7 +599,7 @@ export default function ChatClient() {
             <ul>
               {pendingMembers.map((member) => (
                 <li key={member.id} className="chat-request-item">
-                  <span>{member.profiles?.email ?? member.user_id}</span>
+                  <span>{member.profiles?.[0]?.email ?? member.user_id}</span>
                   <div className="chat-request-actions">
                     <button
                       type="button"
