@@ -32,11 +32,11 @@ type GraphQLResponse = {
 
 const CATEGORIES_QUERY = `
   query ArticlesByCategory {
-    categories(first: 50) {
+    categories(first: 20, where: { hideEmpty: true }) {
       nodes {
         name
         slug
-        posts(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+        posts(first: 8, where: { orderby: { field: DATE, order: DESC } }) {
           nodes {
             title
             slug
