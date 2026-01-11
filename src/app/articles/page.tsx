@@ -1,5 +1,8 @@
-ο»Ώimport Link from "next/link";
+import Link from "next/link";
 import { ImageSwiper } from "@/components/ui/image-swiper";
+
+export const dynamic = "force-dynamic";
+
 
 type Post = {
   title: string;
@@ -104,13 +107,13 @@ export default async function ArticlesPage() {
     <main>
       <section className="section">
         <div className="section-header">
-          <h1 className="section-title">Ξ†ΟΞΈΟΞ±</h1>
-          <p className="section-subtitle">ΞΞ»Ξ± Ο„Ξ± Ξ¬ΟΞΈΟΞ± Ξ±Ξ½Ξ¬ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±.</p>
+          <h1 className="section-title">Άρθρα</h1>
+          <p className="section-subtitle">Όλα τα άρθρα ανά κατηγορία.</p>
         </div>
       </section>
       {error ? <p>{error}</p> : null}
       {visibleCategories.length === 0 ? (
-        <p>Ξ”ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞ±Ξ½ Ξ¬ΟΞΈΟΞ±.</p>
+        <p>Δεν βρέθηκαν άρθρα.</p>
       ) : (
         visibleCategories.map((category) => {
           const swiperItems = (category.posts?.nodes ?? [])
@@ -135,7 +138,7 @@ export default async function ArticlesPage() {
                   className="section-link"
                   href={`/category/${category.slug}`}
                 >
-                  Ξ ΟΞΏΞ²ΞΏΞ»Ξ®
+                  Προβολή
                 </Link>
               </div>
               {swiperItems.length > 0 ? (
@@ -147,7 +150,7 @@ export default async function ArticlesPage() {
                 />
               ) : (
                 <p className="page-subtitle">
-                  Ξ”ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ Ξ¬ΟΞΈΟΞ± ΟƒΞµ Ξ±Ο…Ο„Ξ® Ο„Ξ·Ξ½ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±.
+                  Δεν υπάρχουν άρθρα σε αυτή την κατηγορία.
                 </p>
               )}
             </section>
